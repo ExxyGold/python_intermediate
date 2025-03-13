@@ -12,7 +12,7 @@ def move():
     timmy.pencolor(random.choice(colour_list))
     timmy.dot(20)
     timmy.forward(50)
-
+ 
 def row():
     for _ in range(10):
         move()
