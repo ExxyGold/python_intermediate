@@ -1,9 +1,11 @@
 from turtle import Turtle
-
+start_position = [(0,0), (-20, 0), (-40, 0)]
 UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
+
+snake_size = 3
 
 class Snake():
     def __init__(self):
@@ -13,15 +15,20 @@ class Snake():
         self.head = self.snake[0]
 
     def create_snake(self):
-        x= 0
-        for _ in range(3):
-            tim = Turtle("square")
-            tim.color("white")
-            tim.penup()
-            tim.goto(x , 0 )
-            x -= 20
-            self.snake.append(tim)
+        for _ in start_position:
+            self.add_segment(_)
 
+    def add_segment(self, position):
+        tim = Turtle("square")
+        tim.color("white")
+        tim.penup()
+        tim.goto(position)
+
+        self.snake.append(tim)
+    
+    def extend(self):
+        self.add_segment(self.snake[-1].position())
+        
 
     def move(self):
         movement = 20

@@ -19,7 +19,7 @@ user_2 = User("002", "Faith")
 user_1.follow(user_1)
 user_2.follow(user_1)
 
-
+print(user_1)
 
 
 
