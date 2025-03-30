@@ -74,7 +74,7 @@ dataframe = pandas.DataFrame(data_dict)
 
 print(dataframe)
 
-dataframe.to_csv("Student_score.csv")
+dataframe.to_csv("./day_25/Student_score.csv")
 
 
 
