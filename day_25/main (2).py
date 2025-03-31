@@ -45,12 +45,8 @@ while len(correct_answer)< 50:
         break
 
 
-missed_data = []
+missed_data = [answers for answers in states_list if answers not in correct_answer]
 
-
-for answers in states_list:
-    if answers not in correct_answer:
-        missed_data.append(answers)
 
 
 missed_dataframe = pandas.DataFrame(missed_data)
