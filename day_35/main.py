@@ -9,7 +9,7 @@ auth_token = os.getenv("AUTH_TOKEN")
 
 api_key = "d45b6a63b43af269fb9d12267329dd5b"
 
-account_sid = os.getenv("ACCOUNT_SID")
+account_sid = os.getenv("ACC_SID")
 
 
 
