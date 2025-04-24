@@ -2,6 +2,8 @@ import random
 import datetime as dt
 import pandas
 import smtplib
+import os
+from dotenv import load_dotenv, dotenv_values
 ##################### Extra Hard Starting Project ######################
 
 # 1. Update the birthdays.csv
@@ -10,6 +12,7 @@ import smtplib
 birthdays = pandas.read_csv("./day_32/birthdays.csv")
 
 birth_dict = birthdays.to_dict(orient = "list")
+
 
 # print(birth_dict)
 friends = birth_dict["name"]
@@ -35,10 +38,8 @@ for n in range(1,4):
         letter = file.read()
         letters.append(letter)
 
-
-
-
-
+load_dotenv()
+my_password =  os.getenv("EMAIL_PASSWORD")
 
 for persons in celebs_dict:
     chosen_letter = random.choice(letters)
@@ -46,7 +47,7 @@ for persons in celebs_dict:
     modified_letter = chosen_letter.replace("[NAME]", persons)
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as connection:
-        connection.login("exaltmokonogho@gmail.com", "ztqpjxnsmwkiorjd")
+        connection.login("exaltmokonogho@gmail.com", my_password)
         connection.sendmail(from_addr= "exaltmokonogho@gmail.com", 
                             to_addrs= celebs_dict[persons], 
                             msg= f"Subject:Happy Birthday {persons}\n\n{modified_letter}")

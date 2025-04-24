@@ -1,6 +1,8 @@
 import requests
+import os
 from datetime import datetime
 import smtplib
+from dotenv import load_dotenv, dotenv_values
 
 MY_LAT = 5.893660 # Your latitude
 MY_LONG = 5.676750 # Your longitude
@@ -39,12 +41,13 @@ def night_time():
     if (current_hour in range(17, 24) or current_hour in range(0, 6)):
         return True
 
-
+load_dotenv()
+password = os.getenv("EMAIL_PASSWORD")
 #If the ISS is close to my current position
 
 if not night_time():
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as connection:
-        connection.login("exaltmokonogho@gmail.com", password= "ztqpjxnsmwkiorjd")
+        connection.login("exaltmokonogho@gmail.com", password= password)
         connection.sendmail(from_addr="exaltmokonogho@gmail.com", to_addrs= "mokonoghoexalt@gmail.com", msg= "Subject:Hey Exxy\n\nLook up, the ISS is up there")
 
     print("yes")
