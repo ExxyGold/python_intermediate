@@ -42,7 +42,6 @@ for time in data_list:
         will_rain = True
        
 if will_rain:
-    print("yes")
     client = Client(account_sid, auth_token)
     message = client.messages.create(
     body="Bring an umbrella cuz its going to rain☔",
