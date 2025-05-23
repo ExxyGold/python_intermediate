@@ -5,7 +5,7 @@ class Score(Turtle):
     def __init__(self):
         super().__init__()
         self.value = 0
-        with open("data.txt") as file:
+        with open("./day_20_snake/data.txt") as file:
             content = file.read()
         self.highscore = int(content)
         self.color("white")
